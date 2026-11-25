@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akses Utama Sistem Informasi Manajemen Rumah Kos (Core Offer) — KosinAja</title>
+    <meta name="description" content="Akses Utama Sistem Informasi Manajemen Rumah Kos. Panduan Singkat Fitur Inti & Langkah Mulai Menggunakan Platform Pengelolaan Kos Terpusat bersama KosinAja.">
+
+    <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    },
+                    colors: {
+                        lime: {
+                            300: '#C4F54C',
+                            400: '#B8F54A',
+                            500: '#A3E635',
+                        },
+                        dark: {
+                            950: '#0C100E',
+                            900: '#121619',
+                            800: '#1C2226',
+                            700: '#2A3338',
+                        }
+                    },
+                    boxShadow: {
+                        'neo': '3px 4px 0px 0px rgba(18, 22, 25, 1)',
+                        'neo-lg': '6px 8px 0px 0px rgba(18, 22, 25, 1)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #FFFFFF;
+            color: #121619;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Print styles for PDF saving */
+        @media print {
+            header, footer, .no-print, button, #orderModal {
+                display: none !important;
+            }
+            body {
+                background: white !important;
+                color: black !important;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F4F4F5;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D4D4D8;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #A1A1AA;
+        }
+    </style>
+</head>
+<body class="selection:bg-lime-300 selection:text-neutral-900">
+
+    <!-- NAVBAR (Identical KosinAja brand style) -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-neutral-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-2.5 group">
+                <svg class="w-6 h-6 text-neutral-900" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0L14.7 9.3L24 12L14.7 14.7L12 24L9.3 14.7L0 12L9.3 9.3L12 0Z" />
+                </svg>
+                <div class="flex items-center gap-2">
+                    <span class="text-xl sm:text-2xl font-extrabold tracking-tight text-neutral-900">KosinAja</span>
+                    <span class="hidden sm:inline-block font-mono text-[11px] font-bold px-2 py-0.5 rounded-full bg-lime-400 text-neutral-900 border border-neutral-900">CORE OFFER</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center gap-8 text-[15px] font-semibold text-neutral-700">
+                <a href="#tentang-core-offer" class="hover:text-neutral-950 transition-colors">Tentang Core Offer</a>
+                <a href="#fitur-peran" class="hover:text-neutral-950 transition-colors">Fitur Peran Pengguna</a>
+                <a href="#4-langkah-cepat" class="hover:text-neutral-950 transition-colors">4 Langkah Mulai</a>
+                <a href="#bantuan-pengembangan" class="hover:text-neutral-950 transition-colors">Bantuan & Lanjutan</a>
+            </nav>
+
+            <!-- Nav Action Buttons -->
+            <div class="flex items-center gap-3">
+                <button onclick="window.print()" class="hidden lg:inline-flex items-center justify-center px-4 py-2.5 rounded-xl border-2 border-neutral-900 bg-white hover:bg-neutral-900 hover:text-white text-neutral-900 font-bold text-sm transition-all">
+                    Baca Panduan Lengkap
+                </button>
+                <a href="https://wa.me/6285871444639?text=Halo%20KosinAja%2C%20saya%20tertarik%20mengaktifkan%20Akses%20Utama%20Sistem%20Informasi%20Manajemen%20Rumah%20Kos%20(Core%20Offer)." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-lime-400 hover:bg-lime-300 text-neutral-900 border-2 border-neutral-900 font-extrabold text-sm transition-all shadow-neo">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.044c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824zm-3.397-12.416C6.474 2 2 6.474 2 12.031c0 1.956.564 3.784 1.542 5.334L2 22l4.787-1.493a9.98 9.98 0 0 0 5.244 1.524h.005c5.552 0 10.026-4.474 10.026-10.031 0-5.557-4.474-10.031-10.031-10.031z"/>
+                    </svg>
+                    <span>Hubungi WA</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO SECTION (Identical neo-brutalist tech vector design) -->
+        <section class="relative bg-white pt-10 pb-16 lg:pt-16 lg:pb-24 overflow-hidden border-b border-neutral-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                    
+                    <!-- Left Hero Text -->
+                    <div class="lg:col-span-7">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-lime-400 border border-neutral-900 text-xs font-bold text-neutral-900 mb-6">
+                            <span>✦ CORE OFFER</span>
+                            <span>•</span>
+                            <span>PLATFORM PENGELOLAAN TERPUSAT</span>
+                        </div>
+
+                        <h1 class="text-4xl sm:text-5xl lg:text-[54px] font-extrabold text-neutral-900 tracking-tight leading-[1.12]">
+                            Akses Utama Sistem Informasi Manajemen Rumah Kos
+                        </h1>
+
+                        <p class="text-base sm:text-lg text-neutral-600 leading-relaxed max-w-xl mt-6">
+                            Panduan Singkat Fitur Inti & Langkah Mulai Menggunakan Platform Pengelolaan Kos Terpusat. Mengotomatiskan seluruh alur operasional bisnis kos Anda dalam satu dashboard modern.
+                        </p>
+
+                        <!-- Action Buttons -->
+                        <div class="flex flex-wrap items-center gap-4 mt-8">
+                            <a href="https://wa.me/6285871444639?text=Halo%20KosinAja%2C%20saya%20ingin%20mengaktifkan%20Akses%20Utama%20Sistem%20Informasi%20Manajemen%20Rumah%20Kos%20(Core%20Offer)." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-7 py-3.5 rounded-xl bg-neutral-900 hover:bg-neutral-800 text-white font-bold text-sm sm:text-base shadow-sm transition-all gap-2.5">
+                                <svg class="w-4 h-4 fill-current text-lime-400" viewBox="0 0 24 24">
+                                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.044c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824zm-3.397-12.416C6.474 2 2 6.474 2 12.031c0 1.956.564 3.784 1.542 5.334L2 22l4.787-1.493a9.98 9.98 0 0 0 5.244 1.524h.005c5.552 0 10.026-4.474 10.026-10.031 0-5.557-4.474-10.031-10.031-10.031z"/>
+                                </svg>
+                                <span>Aktivasi Core Offer (WA)</span>
+                            </a>
+
+                            <a href="#tentang-core-offer" class="inline-flex items-center justify-center px-7 py-3.5 rounded-xl border-2 border-neutral-900 bg-white hover:bg-neutral-50 text-neutral-900 font-bold text-sm sm:text-base transition-all">
+                                Pelajari Fitur Platform
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right Illustration (Identical to user reference image) -->
+                    <div class="lg:col-span-5 flex justify-center lg:justify-end">
+                        <div class="relative w-full max-w-[420px] aspect-square flex items-center justify-center">
+                            
+                            <!-- Dashed elliptical orbit ring -->
+                            <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 420 420" fill="none">
+                                <ellipse cx="210" cy="210" rx="195" ry="78" transform="rotate(-15 210 210)" stroke="#18181B" stroke-width="1.8" stroke-dasharray="4 4" opacity="0.85" />
+                            </svg>
+
+                            <!-- Top-right dark badge with 3 lime horizontal lines (menu icon) -->
+                            <div class="absolute top-10 right-4 w-12 h-12 rounded-full bg-neutral-900 border-2 border-neutral-900 flex flex-col items-center justify-center gap-1 shadow-sm z-20">
+                                <span class="w-4 h-0.5 bg-lime-400 rounded-full"></span>
+                                <span class="w-4 h-0.5 bg-lime-400 rounded-full"></span>
+                                <span class="w-4 h-0.5 bg-lime-400 rounded-full"></span>
+                            </div>
+
+                            <!-- Right-upper lime checkmark badge -->
+                            <div class="absolute top-28 right-0 w-11 h-11 rounded-full bg-lime-400 border-2 border-neutral-900 flex items-center justify-center z-20 shadow-sm">
+                                <svg class="w-5 h-5 text-neutral-900 stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                </svg>
+                            </div>
+
+                            <!-- Middle-right dark exclamation badge -->
+                            <div class="absolute bottom-28 right-2 w-10 h-10 rounded-full bg-neutral-900 border-2 border-neutral-900 flex items-center justify-center text-white font-extrabold text-base z-20 shadow-sm">
+                                !
+                            </div>
+
+                            <!-- Bottom-right lime checkmark badge -->
+                            <div class="absolute bottom-10 right-14 w-11 h-11 rounded-full bg-lime-400 border-2 border-neutral-900 flex items-center justify-center z-20 shadow-sm">
+                                <svg class="w-5 h-5 text-neutral-900 stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                </svg>
+                            </div>
+
+                            <!-- Small floating lime dot -->
+                            <div class="absolute bottom-20 right-28 w-3 h-3 rounded-full bg-lime-400 border border-neutral-900 z-10"></div>
+
+                            <!-- Floating black sparkles on left and bottom left -->
+                            <div class="absolute top-20 left-10 text-neutral-900 text-xl font-bold">
+                                ✦
+                            </div>
+                            <div class="absolute bottom-14 left-8 text-neutral-900 text-2xl font-bold">
+                                ✦
+                            </div>
+
+                            <!-- Main Device / Card Container -->
+                            <div class="relative w-[270px] sm:w-[290px] rounded-[32px] border-[3px] border-neutral-900 bg-white overflow-hidden shadow-neo-lg z-10">
+                                <!-- Device Header (Lime Green with dots) -->
+                                <div class="bg-lime-400 px-5 pt-3.5 pb-4 border-b-2 border-neutral-900">
+                                    <div class="flex items-center gap-2 mb-3">
+                                        <span class="w-2.5 h-2.5 rounded-full bg-neutral-900"></span>
+                                        <span class="w-2.5 h-2.5 rounded-full bg-neutral-900"></span>
+                                        <span class="w-2.5 h-2.5 rounded-full bg-neutral-900"></span>
+                                    </div>
+                                    <!-- Two cards inside lime header -->
+                                    <div class="grid grid-cols-2 gap-2.5">
+                                        <!-- Left white card -->
+                                        <div class="bg-white rounded-xl border-2 border-neutral-900 p-2.5 flex flex-col justify-center gap-1.5 h-14">
+                                            <div class="w-7 h-1.5 bg-neutral-900 rounded-full"></div>
+                                            <div class="w-12 h-1 bg-neutral-400 rounded-full"></div>
+                                        </div>
+                                        <!-- Right black card -->
+                                        <div class="bg-neutral-900 rounded-xl border-2 border-neutral-900 p-2.5 flex flex-col justify-center gap-1.5 h-14">
+                                            <div class="w-7 h-1.5 bg-lime-400 rounded-full"></div>
+                                            <div class="w-10 h-1 bg-neutral-600 rounded-full"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Device Body (White area with wide lime check card) -->
+                                <div class="p-4 bg-white">
+                                    <div class="bg-lime-400 rounded-2xl border-2 border-neutral-900 p-3.5 flex items-center gap-3">
+                                        <div class="w-7 h-7 rounded-full bg-neutral-900 flex items-center justify-center shrink-0">
+                                            <svg class="w-4 h-4 text-lime-400 stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                            </svg>
+                                        </div>
+                                        <div class="space-y-1">
+                                            <div class="w-20 h-1.5 bg-neutral-900 rounded-full"></div>
+                                            <div class="w-14 h-1 bg-neutral-800 rounded-full opacity-60"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: TENTANG AKSES UTAMA (CORE OFFER) -->
+        <section id="tentang-core-offer" class="py-16 sm:py-24 bg-neutral-50/60 border-b border-neutral-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="max-w-3xl mb-12">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-lime-400 border border-neutral-900 text-xs font-bold text-neutral-900 mb-4">
+                        <span>✦ TENTANG CORE OFFER</span>
+                        <span>•</span>
+                        <span>SISTEM TERINTEGRASI</span>
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900 tracking-tight">
+                        Tentang Akses Utama (Core Offer)
+                    </h2>
+                    <p class="text-base sm:text-lg text-neutral-700 leading-relaxed mt-4">
+                        Produk utama ini memberikan akses penuh ke website Sistem Informasi Manajemen Rumah Kos untuk mengotomatiskan seluruh operasional usaha Anda secara terintegrasi. Platform ini dirancang untuk menyederhanakan proses pencarian kamar, pengajuan booking, penerbitan kontrak digital, penagihan bulanan, hingga penyusunan laporan keuangan otomatis dalam satu panel kendali.
+                    </p>
+                </div>
+
+                <!-- 4 Value Pillar Cards -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-white rounded-2xl p-6 border-2 border-neutral-900 shadow-neo">
+                        <div class="w-11 h-11 rounded-xl bg-lime-400 border border-neutral-900 flex items-center justify-center font-bold text-base mb-4">
+                            01
+                        </div>
+                        <h3 class="text-lg font-bold text-neutral-900 mb-2">Pencarian & Booking</h3>
+                        <p class="text-xs sm:text-sm text-neutral-600 leading-relaxed">
+                            Penghuni dapat mencari kamar secara online, mengecek ketersediaan, dan langsung mengajukan booking resmi.
+                        </p>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-6 border-2 border-neutral-900 shadow-neo">
+                        <div class="w-11 h-11 rounded-xl bg-neutral-900 text-lime-400 border border-neutral-900 flex items-center justify-center font-bold text-base mb-4">
+                            02
+                        </div>
+                        <h3 class="text-lg font-bold text-neutral-900 mb-2">Kontrak Sewa Digital</h3>
+                        <p class="text-xs sm:text-sm text-neutral-600 leading-relaxed">
+                            Penerbitan otomatis dokumen kontrak sewa digital yang sah dan mengikat antara pengelola dan penghuni kos.
+                        </p>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-6 border-2 border-neutral-900 shadow-neo">
+                        <div class="w-11 h-11 rounded-xl bg-lime-400 border border-neutral-900 flex items-center justify-center font-bold text-base mb-4">
+                            03
+                        </div>
+                        <h3 class="text-lg font-bold text-neutral-900 mb-2">Penagihan Bulanan</h3>
+                        <p class="text-xs sm:text-sm text-neutral-600 leading-relaxed">
+                            Pengingat jatuh tempo otomatis H-3, konfirmasi pembayaran, hingga pencetakan resi tanda lunas digital.
+                        </p>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-6 border-2 border-neutral-900 shadow-neo">
+                        <div class="w-11 h-11 rounded-xl bg-neutral-900 text-lime-400 border border-neutral-900 flex items-center justify-center font-bold text-base mb-4">
+                            04
+                        </div>
+                        <h3 class="text-lg font-bold text-neutral-900 mb-2">Laporan Keuangan Otomatis</h3>
+                        <p class="text-xs sm:text-sm text-neutral-600 leading-relaxed">
+                            Arus kas masuk & keluar, rekapitulasi okupansi kamar, dan performa finansial bisnis kos dalam satu panel.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION: FITUR UTAMA BERDASARKAN PERAN PENGGUNA (Exact table & structured cards from PDF) -->
+        <section id="fitur-peran" class="py-16 sm:py-24 bg-white border-b border-neutral-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="max-w-3xl mb-12">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-lime-400 border border-neutral-900 text-xs font-bold text-neutral-900 mb-4">
+                        <span>✦ MULTI-ROLE ECOSYSTEM</span>
+                        <span>•</span>
+                        <span>3 PERAN TERINTEGRASI</span>
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900 tracking-tight">
+                        Fitur Utama Berdasarkan Peran Pengguna
+                    </h2>
+                    <p class="text-neutral-600 text-base mt-2">
+                        Setiap peran pengguna memiliki ruang kerja dan kapabilitas khusus yang saling terhubung secara mulus di dalam ekosistem platform.
+                    </p>
+                </div>
+
+                <!-- Interactive Role Switcher / Tabs -->
+                <div class="flex flex-wrap items-center gap-3 mb-8">
+                    <button id="btnRoleAdmin" onclick="switchRole('admin')" class="px-5 py-2.5 rounded-xl border-2 border-neutral-900 bg-neutral-900 text-white font-bold text-sm shadow-neo transition-all">
+                        1. Admin Kos (Pemilik / Pengelola)
+                    </button>
+                    <button id="btnRolePenghuni" onclick="switchRole('penghuni')" class="px-5 py-2.5 rounded-xl border-2 border-neutral-900 bg-white text-neutral-900 font-bold text-sm hover:bg-neutral-50 transition-all">
+                        2. Penghuni / Pengunjung
+                    </button>
+                    <button id="btnRoleSuper" onclick="switchRole('super')" class="px-5 py-2.5 rounded-xl border-2 border-neutral-900 bg-white text-neutral-900 font-bold text-sm hover:bg-neutral-50 transition-all">
+                        3. Admin Super (Pengelola Platform)
+                    </button>
+                </div>
+
+                <!-- ROLE 1: ADMIN KOS -->
+                <div id="panelRoleAdmin" class="bg-neutral-50 rounded-3xl border-2 border-neutral-900 shadow-neo-lg p-6 sm:p-10 mb-8">
+                    <div class="flex flex-wrap items-center justify-between gap-4 pb-6 mb-8 border-b-2 border-neutral-900">
+                        <div>
+                            <span class="font-mono text-xs font-bold uppercase tracking-wider text-neutral-500">PERAN UTAMA BISNIS</span>
+                            <h3 class="text-2xl sm:text-3xl font-extrabold text-neutral-900">Admin Kos (Pemilik / Pengelola)</h3>
+                        </div>
+                        <span class="px-3.5 py-1.5 rounded-full bg-lime-400 border border-neutral-900 text-neutral-900 font-mono text-xs font-bold">
+                            Full Control Workspace
+                        </span>
+                    </div>
+
+                    <p class="text-neutral-700 text-sm sm:text-base leading-relaxed mb-8">
+                        <strong>Fitur Utama di Dalam Sistem:</strong> Registrasi akun & pilih paket berlangganan, kelola profil & informasi kos, kelola data kamar, fasilitas & peraturan kos, kelola & verifikasi booking (setujui/tolak), kelola data penghuni, buat kontrak sewa digital, kelola tagihan & verifikasi pembayaran penghuni, kelola pengaduan/kerusakan, notifikasi sistem, serta pantau laporan keuangan, statistik & riwayat transaksi.
+                    </p>
+
+                    <!-- Feature Grid for Admin Kos -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div class="p-4 bg-white rounded-xl border border-neutral-200 flex items-start gap-3">
+                            <span class="w-6 h-6 rounded bg-lime-400 text-neutral-900 font-bold flex items-center justify-center text-xs shrink-0 mt-0.5">✓</span>
+                            <span class="text-xs sm:text-sm font-medium text-neutral-800">Registrasi akun & pilih paket berlangganan</span>
+                        </div>
+                        <div class="p-4 bg-white rounded-xl border border-neutral-200 flex items-start gap-3">
+                            <span class="w-6 h-6 rounded bg-lime-400 text-neutral-900 font-bold flex items-center justify-center text-xs shrink-0 mt-0.5">✓</span>
+                            <span class="text-xs sm:text-sm font-medium text-neutral-800">Kelola profil & informasi properti kos</span>
+                        </div>
+                        <div class="p-4 bg-white rounded-xl border border-neutral-200 flex items-start gap-3">
+                            <span class="w-6 h-6 rounded bg-lime-400 text-neutral-900 font-bold flex items-center justify-center text-xs shrink-0 mt-0.5">✓</span>
+                            <span class="text-xs sm:text-sm font-medium text-neutral-800">Kelola data kamar, tarif, fasilitas & peraturan kos</span>
+                        </div>
+                        <div class="p-4 bg-white rounded-xl border border-neutral-200 flex items-start gap-3">
+                            <span class="w-6 h-6 rounded bg-lime-400 text-neutral-900 font-bold flex items-center justify-center text-xs shrink-0 mt-0.5">✓</span>
+                            <span class="text-xs sm:text-sm font-medium text-neutral-800">Kelola & verifikasi booking (setujui / tolak)</span>
+                        </div>
+                        <div class="p-4 bg-white rounded-xl border border-neutral-200 flex items-start gap-3">
+                            <span class="w-6 h-6 rounded bg-lime-400 text-neutral-900 font-bold flex items-center justify-center text-xs shrink-0 mt-0.5">✓</span>
+                            <span class="text-xs sm:text-sm font-medium text-neutral-800">Kelola database profil penghuni aktif</span>
+                        </div>
+                        <div class="p-4 bg-white rounded-xl border border-neutral-200 flex items-start gap-3">
+                            <span class="w-6 h-6 rounded bg-lime-400 text-neutral-900 font-bold flex items-center justify-center text-xs shrink-0 mt-0.5">✓</span>
+                            <span class="text-xs sm:text-sm font-medium text-neutral-800">Buat & terbitkan kontrak sewa digital</span>
+                        </div>
+                        <div class="p-4 bg-white rounded-xl border border-neutral-200 flex items-start gap-3">
+                            <span class="w-6 h-6 rounded bg-lime-400 text-neutral-900 font-bold flex items-center justify-center text-xs shrink-0 mt-0.5">✓</span>
+                            <span class="text-xs sm:text-sm font-medium text-neutral-800">Kelola tagihan & verifikasi bukti bayar penghuni</span>
+                        </div>
+                        <div class="p-4 bg-white rounded-xl border border-neutral-200 flex items-start gap-3">
+                            <span class="w-6 h-6 rounded bg-lime-400 text-neutral-900 font-bold flex items-center justify-center text-xs shrink-0 mt-0.5">✓</span>
+                            <span class="text-xs sm:text-sm font-medium text-neutral-800">Kelola tiket laporan pengaduan & kerusakan</span>
+                        </div>
+                        <div class="p-4 bg-white rounded-xl border border-neutral-200 flex items-start gap-3">
+                            <span class="w-6 h-6 rounded bg-lime-400 text-neutral-900 font-bold flex items-center justify-center text-xs shrink-0 mt-0.5">✓</span>
+                            <span class="text-xs sm:text-sm font-medium text-neutral-800">Pantau laporan keuangan, statistik & transaksi</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ROLE 2: PENGHUNI / PENGUNJUNG -->
+                <div id="panelRolePenghuni" class="hidden bg-neutral-50 rounded-3xl border-2 border-neutral-900 shadow-neo-lg p-6 sm:p-10 mb-8">
+                    <div class="flex flex-wrap items-center justify-between gap-4 pb-6 mb-8 border-b-2 border-neutral-900">
+                        <div>
+                            <span class="font-mono text-xs font-bold uppercase tracking-wider text-neutral-500">PORTAL MANDIRI PENGHUNI</span>
+                            <h3 class="text-2xl sm:text-3xl font-extrabold text-neutral-900">Penghuni / Pengunjung</h3>
+                        </div>
+                        <span class="px-3.5 py-1.5 rounded-full bg-lime-400 border border-neutral-900 text-neutral-900 font-mono text-xs font-bold">
+                            Self-Service Portal
+                        </span>
+                    </div>
+
+                    <p class="text-neutral-700 text-sm sm:text-base leading-relaxed mb-8">
+                        <strong>Fitur Utama di Dalam Sistem:</strong> Akses landing page, cari kos & lihat detail kamar, ajukan penyewaan kamar & buat akun penghuni, pantau status pengajuan sewa, lihat informasi kamar & kontrak sewa aktif, cek tagihan & riwayat pembayaran, ajukan pengaduan fasilitas/kerusakan, terima notifikasi, serta kelola profil pribadi.
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div class="p-4 bg-white rounded-xl border border-neutral-200 flex items-start gap-3">
+                            <span class="w-6 h-6 rounded bg-lime-400 text-neutral-900 font-bold flex items-center justify-center text-xs shrink-0 mt-0.5">✓</span>
+                            <span class="text-xs sm:text-sm font-medium text-neutral-800">Akses landing page, cari kos & lihat foto kamar</span>
+                        </div>
+                        <div class="p-4 bg-white rounded-xl border border-neutral-200 flex items-start gap-3">
+                            <span class="w-6 h-6 rounded bg-lime-400 text-neutral-900 font-bold flex items-center justify-center text-xs shrink-0 mt-0.5">✓</span>
+                            <span class="text-xs sm:text-sm font-medium text-neutral-800">Ajukan penyewaan kamar & buat akun penghuni</span>
+                        </div>
+                        <div class="p-4 bg-white rounded-xl border border-neutral-200 flex items-start gap-3">
+                            <span class="w-6 h-6 rounded bg-lime-400 text-neutral-900 font-bold flex items-center justify-center text-xs shrink-0 mt-0.5">✓</span>
+                            <span class="text-xs sm:text-sm font-medium text-neutral-800">Pantau status pengajuan sewa (menunggu/disetujui)</span>
+                        </div>
+                        <div class="p-4 bg-white rounded-xl border border-neutral-200 flex items-start gap-3">
+                            <span class="w-6 h-6 rounded bg-lime-400 text-neutral-900 font-bold flex items-center justify-center text-xs shrink-0 mt-0.5">✓</span>
+                            <span class="text-xs sm:text-sm font-medium text-neutral-800">Lihat informasi kamar & kontrak sewa aktif</span>
+                        </div>
+                        <div class="p-4 bg-white rounded-xl border border-neutral-200 flex items-start gap-3">
+                            <span class="w-6 h-6 rounded bg-lime-400 text-neutral-900 font-bold flex items-center justify-center text-xs shrink-0 mt-0.5">✓</span>
+                            <span class="text-xs sm:text-sm font-medium text-neutral-800">Cek tagihan berkala & riwayat pembayaran</span>
+                        </div>
+                        <div class="p-4 bg-white rounded-xl border border-neutral-200 flex items-start gap-3">
+                            <span class="w-6 h-6 rounded bg-lime-400 text-neutral-900 font-bold flex items-center justify-center text-xs shrink-0 mt-0.5">✓</span>
+                            <span class="text-xs sm:text-sm font-medium text-neutral-800">Ajukan laporan pengaduan fasilitas / kerusakan</span>
+                        </div>
+                        <div class="p-4 bg-white rounded-xl border border-neutral-200 flex items-start gap-3">
+                            <span class="w-6 h-6 rounded bg-lime-400 text-neutral-900 font-bold flex items-center justify-center text-xs shrink-0 mt-0.5">✓</span>
+                            <span class="text-xs sm:text-sm font-medium text-neutral-800">Terima notifikasi sistem & tagihan H-3</span>
+                        </div>
+                        <div class="p-4 bg-white rounded-xl border border-neutral-200 flex items-start gap-3">
+                            <span class="w-6 h-6 rounded bg-lime-400 text-neutral-900 font-bold flex items-center justify-center text-xs shrink-0 mt-0.5">✓</span>
+                            <span class="text-xs sm:text-sm font-medium text-neutral-800">Kelola profil pribadi & kontak darurat</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ROLE 3: ADMIN SUPER -->
+                <div id="panelRoleSuper" class="hidden bg-neutral-50 rounded-3xl border-2 border-neutral-900 shadow-neo-lg p-6 sm:p-10 mb-8">
+                    <div class="flex flex-wrap items-center justify-between gap-4 pb-6 mb-8 border-b-2 border-neutral-900">
+                        <div>
+                            <span class="font-mono text-xs font-bold uppercase tracking-wider text-neutral-500">PENGELOLA UTAMA PLATFORM</span>
+                            <h3 class="text-2xl sm:text-3xl font-extrabold text-neutral-900">Admin Super (Pengelola Platform)</h3>
+                        </div>
+                        <span class="px-3.5 py-1.5 rounded-full bg-neutral-900 text-lime-400 font-mono text-xs font-bold">
+                            Platform Management
+                        </span>
+                    </div>
+
+                    <p class="text-neutral-700 text-sm sm:text-base leading-relaxed mb-8">
+                        <strong>Fitur Utama di Dalam Sistem:</strong> Kelola data Admin Kos, kelola paket berlangganan platform, verifikasi pembayaran langganan dari pemilik kos, kelola riwayat transaksi langganan, dan pantau serta kelola operasional platform secara keseluruhan.
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div class="p-4 bg-white rounded-xl border border-neutral-200 flex items-start gap-3">
+                            <span class="w-6 h-6 rounded bg-neutral-900 text-lime-400 font-bold flex items-center justify-center text-xs shrink-0 mt-0.5">✓</span>
+                            <span class="text-xs sm:text-sm font-medium text-neutral-800">Kelola data seluruh Admin Kos</span>
+                        </div>
+                        <div class="p-4 bg-white rounded-xl border border-neutral-200 flex items-start gap-3">
+                            <span class="w-6 h-6 rounded bg-neutral-900 text-lime-400 font-bold flex items-center justify-center text-xs shrink-0 mt-0.5">✓</span>
+                            <span class="text-xs sm:text-sm font-medium text-neutral-800">Kelola paket & tarif berlangganan platform</span>
+                        </div>
+                        <div class="p-4 bg-white rounded-xl border border-neutral-200 flex items-start gap-3">
+                            <span class="w-6 h-6 rounded bg-neutral-900 text-lime-400 font-bold flex items-center justify-center text-xs shrink-0 mt-0.5">✓</span>
+                            <span class="text-xs sm:text-sm font-medium text-neutral-800">Verifikasi pembayaran langganan dari pemilik kos</span>
+                        </div>
+                        <div class="p-4 bg-white rounded-xl border border-neutral-200 flex items-start gap-3">
+                            <span class="w-6 h-6 rounded bg-neutral-900 text-lime-400 font-bold flex items-center justify-center text-xs shrink-0 mt-0.5">✓</span>
+                            <span class="text-xs sm:text-sm font-medium text-neutral-800">Kelola riwayat transaksi langganan</span>
+                        </div>
+                        <div class="p-4 bg-white rounded-xl border border-neutral-200 flex items-start gap-3">
+                            <span class="w-6 h-6 rounded bg-neutral-900 text-lime-400 font-bold flex items-center justify-center text-xs shrink-0 mt-0.5">✓</span>
+                            <span class="text-xs sm:text-sm font-medium text-neutral-800">Pantau & kelola operasional platform menyeluruh</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Structured Table Summary (Directly matching PDF page 1 & 2) -->
+                <div class="bg-white rounded-2xl border-2 border-neutral-900 shadow-neo overflow-hidden">
+                    <div class="bg-neutral-900 px-6 py-4 flex items-center justify-between">
+                        <span class="font-mono text-xs font-bold uppercase tracking-wider text-lime-400">Tabel Ringkasan Fitur Peran Pengguna</span>
+                        <span class="text-xs text-neutral-300">Dokumen Resmi Core Offer</span>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse text-sm">
+                            <thead>
+                                <tr class="border-b-2 border-neutral-900 bg-neutral-50 font-mono text-xs font-bold uppercase text-neutral-900">
+                                    <th class="py-3.5 px-6 w-1/4">Peran Pengguna</th>
+                                    <th class="py-3.5 px-6 w-3/4">Fitur Utama di Dalam Sistem</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y border-b border-neutral-200">
+                                <tr class="hover:bg-neutral-50/60 transition-colors">
+                                    <td class="py-4 px-6 font-bold text-neutral-900 align-top">
+                                        Admin Kos <span class="block text-xs font-normal text-neutral-500 mt-0.5">(Pemilik / Pengelola)</span>
+                                    </td>
+                                    <td class="py-4 px-6 text-neutral-700 leading-relaxed align-top">
+                                        Registrasi akun & pilih paket berlangganan, kelola profil & informasi kos, kelola data kamar, fasilitas & peraturan kos, kelola & verifikasi booking (setujui/tolak), kelola data penghuni, buat kontrak sewa digital, kelola tagihan & verifikasi pembayaran penghuni, kelola pengaduan/kerusakan, notifikasi sistem, serta pantau laporan keuangan, statistik & riwayat transaksi.
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-neutral-50/60 transition-colors">
+                                    <td class="py-4 px-6 font-bold text-neutral-900 align-top">
+                                        Penghuni / Pengunjung
+                                    </td>
+                                    <td class="py-4 px-6 text-neutral-700 leading-relaxed align-top">
+                                        Akses landing page, cari kos & lihat detail kamar, ajukan penyewaan kamar & buat akun penghuni, pantau status pengajuan sewa, lihat informasi kamar & kontrak sewa aktif, cek tagihan & riwayat pembayaran, ajukan pengaduan fasilitas/kerusakan, terima notifikasi, serta kelola profil pribadi.
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-neutral-50/60 transition-colors">
+                                    <td class="py-4 px-6 font-bold text-neutral-900 align-top">
+                                        Admin Super <span class="block text-xs font-normal text-neutral-500 mt-0.5">(Pengelola Platform)</span>
+                                    </td>
+                                    <td class="py-4 px-6 text-neutral-700 leading-relaxed align-top">
+                                        Kelola data Admin Kos, kelola paket berlangganan platform, verifikasi pembayaran langganan dari pemilik kos, kelola riwayat transaksi langganan, dan pantau serta kelola operasional platform secara keseluruhan.
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION: 4 LANGKAH CEPAT MULAI OPERASIONAL KOS (Exact content from PDF page 2) -->
+        <section id="4-langkah-cepat" class="py-16 sm:py-24 bg-neutral-50/60 border-b border-neutral-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="max-w-3xl mb-14">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-lime-400 border border-neutral-900 text-xs font-bold text-neutral-900 mb-4">
+                        <span>✦ ONBOARDING CEPAT</span>
+                        <span>•</span>
+                        <span>4 TAHAPAN MUDAH</span>
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900 tracking-tight">
+                        4 Langkah Cepat Mulai Operasional Kos
+                    </h2>
+                    <p class="text-neutral-600 text-base mt-2">
+                        Alur praktis untuk mentransformasikan manajemen kos manual Anda menjadi sistem digital otomatis siap pakai.
+                    </p>
+                </div>
+
+                <!-- 4 Steps Architectural Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    
+                    <!-- Langkah 1 -->
+                    <div class="bg-white rounded-2xl p-6 sm:p-7 border-2 border-neutral-900 shadow-neo flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="w-10 h-10 rounded-xl bg-lime-400 border border-neutral-900 flex items-center justify-center font-mono font-extrabold text-base text-neutral-900">
+                                    01
+                                </span>
+                                <span class="font-mono text-xs font-bold text-neutral-400">LANGKAH 1</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-neutral-900 mb-2">Registrasi & Aktivasi</h3>
+                            <p class="text-xs sm:text-sm text-neutral-600 leading-relaxed">
+                                Buat akun Admin Kos baru, pilih paket berlangganan yang sesuai dengan skala bisnis Anda, dan selesaikan pembayaran langganan.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-3 border-t border-neutral-100 font-mono text-[11px] text-neutral-500 font-medium">
+                            Akun Aktif Seketika
+                        </div>
+                    </div>
+
+                    <!-- Langkah 2 -->
+                    <div class="bg-white rounded-2xl p-6 sm:p-7 border-2 border-neutral-900 shadow-neo flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="w-10 h-10 rounded-xl bg-neutral-900 text-white border border-neutral-900 flex items-center justify-center font-mono font-extrabold text-base">
+                                    02
+                                </span>
+                                <span class="font-mono text-xs font-bold text-neutral-400">LANGKAH 2</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-neutral-900 mb-2">Lengkapi Data Kos</h3>
+                            <p class="text-xs sm:text-sm text-neutral-600 leading-relaxed">
+                                Isi profil properti kos, input daftar kamar beserta tarif, fasilitas yang tersedia, dan atur peraturan kos.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-3 border-t border-neutral-100 font-mono text-[11px] text-neutral-500 font-medium">
+                            Kamar & Aturan Tertata
+                        </div>
+                    </div>
+
+                    <!-- Langkah 3 -->
+                    <div class="bg-white rounded-2xl p-6 sm:p-7 border-2 border-neutral-900 shadow-neo flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="w-10 h-10 rounded-xl bg-lime-400 border border-neutral-900 flex items-center justify-center font-mono font-extrabold text-base text-neutral-900">
+                                    03
+                                </span>
+                                <span class="font-mono text-xs font-bold text-neutral-400">LANGKAH 3</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-neutral-900 mb-2">Mulai Terima Penghuni</h3>
+                            <p class="text-xs sm:text-sm text-neutral-600 leading-relaxed">
+                                Tinjau setiap pengajuan booking yang masuk dari calon penghuni, setujui penyewa yang sesuai, dan terbitkan kontrak sewa digital.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-3 border-t border-neutral-100 font-mono text-[11px] text-neutral-500 font-medium">
+                            Kontrak Digital Sah
+                        </div>
+                    </div>
+
+                    <!-- Langkah 4 -->
+                    <div class="bg-white rounded-2xl p-6 sm:p-7 border-2 border-neutral-900 shadow-neo flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="w-10 h-10 rounded-xl bg-neutral-900 text-white border border-neutral-900 flex items-center justify-center font-mono font-extrabold text-base">
+                                    04
+                                </span>
+                                <span class="font-mono text-xs font-bold text-neutral-400">LANGKAH 4</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-neutral-900 mb-2">Pantau Tagihan & Laporan</h3>
+                            <p class="text-xs sm:text-sm text-neutral-600 leading-relaxed">
+                                Kelola tagihan bulanan secara otomatis, verifikasi bukti pembayaran penghuni, tangani pengaduan masuk, dan pantau performa laporan keuangan langsung dari dashboard.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-3 border-t border-neutral-100 font-mono text-[11px] text-neutral-500 font-medium">
+                            Dashboard Real-Time
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION: BANTUAN & PENGEMBANGAN LANJUTAN (PROFIT MAXIMIZER) -->
+        <section id="bantuan-pengembangan" class="py-16 sm:py-24 bg-neutral-900 text-white relative overflow-hidden">
+            <div class="absolute -right-20 -bottom-20 w-80 h-80 rounded-full bg-lime-400/10 pointer-events-none blur-3xl"></div>
+
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-lime-400 text-neutral-950 font-mono text-xs font-extrabold uppercase mb-4">
+                        ✦ SUPPORT & SCALE UP
+                    </div>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+                        Bantuan & Pengembangan Lanjutan
+                    </h2>
+                    <p class="text-base sm:text-lg text-neutral-300 leading-relaxed mt-6">
+                        Jika Anda membutuhkan kendala teknis atau panduan penggunaan platform, tim dukungan kami siap membantu melalui layanan bantuan resmi. Bagi pemilik kos yang berencana melakukan ekspansi banyak cabang, migrasi data dalam jumlah besar, atau memerlukan pendampingan prioritas, Anda dapat beralih ke paket lanjutan <strong class="text-lime-400">(Profit Maximizer)</strong> untuk solusi yang lebih komprehensif.
+                    </p>
+                </div>
+
+                <!-- 2 Comparison / Upsell Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                    
+                    <!-- Card 1: Bantuan Resmi & Layanan Teknis -->
+                    <div class="bg-neutral-800 rounded-3xl border-2 border-neutral-700 p-8 flex flex-col justify-between">
+                        <div>
+                            <div class="w-10 h-10 rounded-xl bg-lime-400 text-neutral-900 font-bold flex items-center justify-center text-lg mb-4">
+                                ?
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Layanan Bantuan Resmi</h3>
+                            <p class="text-xs sm:text-sm text-neutral-300 leading-relaxed mb-6">
+                                Konsultasikan kendala teknis, pertanyaan konfigurasi kamar, atau panduan onboarding tim admin kos Anda langsung bersama staf teknis KosinAja.
+                            </p>
+                            <ul class="space-y-2.5 text-xs sm:text-sm text-neutral-300">
+                                <li class="flex items-center gap-2">
+                                    <span class="text-lime-400 font-bold">✓</span>
+                                    <span>Panduan operasional sistem & tanya jawab</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="text-lime-400 font-bold">✓</span>
+                                    <span>Respon cepat via WhatsApp resmi</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="text-lime-400 font-bold">✓</span>
+                                    <span>Pembaruan sistem & tutorial berkala</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="mt-8 pt-6 border-t border-neutral-700">
+                            <a href="https://wa.me/6285871444639?text=Halo%20Tim%20KosinAja%2C%20saya%20butuh%20bantuan%20teknis%20dan%20panduan%20penggunaan%20platform%20Core%20Offer." target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center py-3.5 px-6 rounded-xl border-2 border-neutral-600 hover:border-white text-white font-bold text-sm transition-all gap-2">
+                                <span>Hubungi Dukungan Teknis</span>
+                                <span>&rarr;</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Paket Lanjutan (Profit Maximizer) -->
+                    <div class="bg-neutral-800 rounded-3xl border-2 border-lime-400 p-8 flex flex-col justify-between relative shadow-2xl">
+                        <div class="absolute -top-3 right-8 bg-lime-400 text-neutral-950 font-mono text-[11px] font-extrabold px-3 py-1 rounded-full uppercase">
+                            Solusi Komprehensif
+                        </div>
+                        <div>
+                            <div class="w-10 h-10 rounded-xl bg-lime-400 text-neutral-900 font-bold flex items-center justify-center text-lg mb-4">
+                                ★
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Paket Lanjutan (Profit Maximizer)</h3>
+                            <p class="text-xs sm:text-sm text-neutral-300 leading-relaxed mb-6">
+                                Dirancang khusus untuk juragan kos dengan banyak cabang, jumlah kamar besar, atau yang membutuhkan tim pendamping prioritas agar bisnis semakin ekspansif.
+                            </p>
+                            <ul class="space-y-2.5 text-xs sm:text-sm text-neutral-300">
+                                <li class="flex items-center gap-2">
+                                    <span class="text-lime-400 font-bold">✓</span>
+                                    <span>Multi-cabang & ribuan kamar terpusat</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="text-lime-400 font-bold">✓</span>
+                                    <span>Migrasi data massal dibantu tuntas oleh tim</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="text-lime-400 font-bold">✓</span>
+                                    <span>Dedicated account manager & pendampingan prioritas</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="mt-8 pt-6 border-t border-neutral-700">
+                            <a href="https://wa.me/6285871444639?text=Halo%20Tim%20KosinAja%2C%20saya%20tertarik%20konsultasi%20Paket%20Lanjutan%20(Profit%20Maximizer)%20untuk%20ekspansi%20cabang%20kos." target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center py-3.5 px-6 rounded-xl bg-lime-400 hover:bg-lime-300 text-neutral-950 font-extrabold text-sm transition-all gap-2 shadow-neo">
+                                <span>Konsultasi Profit Maximizer</span>
+                                <span>&rarr;</span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Bottom CTA Box -->
+                <div class="bg-neutral-950 rounded-2xl border border-neutral-800 p-6 sm:p-8 text-center">
+                    <h4 class="text-lg sm:text-xl font-bold text-white mb-2">
+                        Siap Memulai Digitalisasi Penuh Kos Anda Hari Ini?
+                    </h4>
+                    <p class="text-xs sm:text-sm text-neutral-400 max-w-xl mx-auto mb-6">
+                        Dapatkan akses penuh ke Sistem Informasi Manajemen Rumah Kos (Core Offer) sekarang juga bersama KosinAja.
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <a href="https://wa.me/6285871444639?text=Halo%20KosinAja%2C%20saya%20ingin%20segera%20mengaktifkan%20Akses%20Utama%20Sistem%20Informasi%20Manajemen%20Rumah%20Kos%20(Core%20Offer)." target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 rounded-xl bg-lime-400 hover:bg-lime-300 text-neutral-950 font-extrabold text-base transition-all gap-2 shadow-neo">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.044c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824zm-3.397-12.416C6.474 2 2 6.474 2 12.031c0 1.956.564 3.784 1.542 5.334L2 22l4.787-1.493a9.98 9.98 0 0 0 5.244 1.524h.005c5.552 0 10.026-4.474 10.026-10.031 0-5.557-4.474-10.031-10.031-10.031z"/>
+                            </svg>
+                            <span>Daftar / Konsultasi via WhatsApp (0858-7144-4639)</span>
+                        </a>
+                        <button onclick="window.print()" class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-4 rounded-xl border-2 border-neutral-700 hover:border-white text-white font-bold text-base transition-all">
+                            Simpan Dokumen (PDF)
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-white border-t border-neutral-200 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="flex items-center gap-2.5">
+                    <svg class="w-6 h-6 text-neutral-900" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0L14.7 9.3L24 12L14.7 14.7L12 24L9.3 14.7L0 12L9.3 9.3L12 0Z" />
+                    </svg>
+                    <span class="text-xl font-extrabold text-neutral-900">KosinAja</span>
+                    <span class="text-xs text-neutral-500 font-mono pl-2 border-l border-neutral-300">Core Offer Platform</span>
+                </div>
+                
+                <div class="flex flex-wrap items-center gap-4 text-xs font-semibold">
+                    <a href="https://wa.me/6285871444639?text=Halo%20KosinAja%2C%20saya%20ingin%20tanya%20Core%20Offer." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-neutral-100 hover:bg-neutral-200 text-neutral-900 transition-colors">
+                        <span class="w-2 h-2 rounded-full bg-lime-500"></span>
+                        <span>WhatsApp: 0858-7144-4639</span>
+                    </a>
+                </div>
+
+                <div class="text-xs text-neutral-500 text-center md:text-right">
+                    Akses Utama Sistem Informasi Manajemen Rumah Kos &copy; 2026 KosinAja. Seluruh hak cipta dilindungi.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING WHATSAPP BUTTON -->
+    <a href="https://wa.me/6285871444639?text=Halo%20KosinAja%2C%20saya%20ingin%20konsultasi%20Akses%20Utama%20Sistem%20Informasi%20Manajemen%20Rumah%20Kos%20(Core%20Offer)." target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-50 flex items-center gap-2.5 px-4 py-3 rounded-full bg-lime-400 hover:bg-lime-300 text-neutral-900 border-2 border-neutral-900 font-extrabold text-sm shadow-neo transition-all hover:-translate-y-1 group no-print">
+        <svg class="w-5 h-5 fill-current text-neutral-900" viewBox="0 0 24 24">
+            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.044c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824zm-3.397-12.416C6.474 2 2 6.474 2 12.031c0 1.956.564 3.784 1.542 5.334L2 22l4.787-1.493a9.98 9.98 0 0 0 5.244 1.524h.005c5.552 0 10.026-4.474 10.026-10.031 0-5.557-4.474-10.031-10.031-10.031z"/>
+        </svg>
+        <span>Tanya WA (0858-7144-4639)</span>
+    </a>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script src="script.js"></script>
+    <script>
+        function switchRole(role) {
+            const btnAdmin = document.getElementById('btnRoleAdmin');
+            const btnPenghuni = document.getElementById('btnRolePenghuni');
+            const btnSuper = document.getElementById('btnRoleSuper');
+
+            const panelAdmin = document.getElementById('panelRoleAdmin');
+            const panelPenghuni = document.getElementById('panelRolePenghuni');
+            const panelSuper = document.getElementById('panelRoleSuper');
+
+            // Default inactive button styles
+            const inactiveClass = 'px-5 py-2.5 rounded-xl border-2 border-neutral-900 bg-white text-neutral-900 font-bold text-sm hover:bg-neutral-50 transition-all';
+            const activeClass = 'px-5 py-2.5 rounded-xl border-2 border-neutral-900 bg-neutral-900 text-white font-bold text-sm shadow-neo transition-all';
+
+            btnAdmin.className = inactiveClass;
+            btnPenghuni.className = inactiveClass;
+            btnSuper.className = inactiveClass;
+
+            panelAdmin.classList.add('hidden');
+            panelPenghuni.classList.add('hidden');
+            panelSuper.classList.add('hidden');
+
+            if (role === 'admin') {
+                btnAdmin.className = activeClass;
+                panelAdmin.classList.remove('hidden');
+            } else if (role === 'penghuni') {
+                btnPenghuni.className = activeClass;
+                panelPenghuni.classList.remove('hidden');
+            } else if (role === 'super') {
+                btnSuper.className = activeClass;
+                panelSuper.classList.remove('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
